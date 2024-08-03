@@ -35,7 +35,7 @@ En las aplicaciones prácticas de la integración se presentan situaciones que n
   
 
 ## Métodos numéricos
-1.	<u>Método del rectángulo (Regla del punto medio)</u>
+1.	Método del rectángulo (Regla del punto medio)
 Es una técnica básica de integración numérica en la que a partir del área de rectángulos se aproxima la integral de una función. Existen tres variaciones principales de este método: <i>regla del rectángulo izquierdo, regla del rectángulo derecho y regla del punto medio. </i> En esta ocasión únicamente se hace uso de la <b>regla del punto medio</b>, en donde se calcula la altura de los rectángulos a partir del valor de la función en el punto medio de cada subintervalo.
 Fórmula:
 2.	Método del Trapecio
@@ -74,8 +74,280 @@ Esta técnica también utiliza polinomios de interpolación, pero los puntos de 
 ## Comparación de métodos
 Cada método tiene sus propias aplicaciones y es adecuado para diferentes tipos de problemas de integración.
 
+<table cellspacing="1" bgcolor="">
+  <tr bgcolor="#252582">
+    <th><b>Método</b></th>
+    <th><b>Precisión</b></th>
+    <th><b>Complejidad Computacional</b></th>
+    <th><b>Facilidad de Implementación</b></th>
+  </tr>
+  <tr bgcolor="#e4e4ed">
+    <td style="color:#141414" align="center">Método del Rectángulo</td>
+    <td style="color:#141414" align="center">Baja</td>
+    <td style="color:#141414" align="center">Baja</td>
+    <td style="color:#141414" align="center">Alta</td>
+  </tr>
+  <tr bgcolor="#e4e4ed">
+    <td style="color:#141414" align="center">Método del Trapecio</td>
+    <td style="color:#141414" align="center">Moderada</td>
+    <td style="color:#141414" align="center">Moderada</td>
+    <td style="color:#141414" align="center">Moderada</td>
+  </tr>
+  <tr bgcolor="#e4e4ed">
+    <td style="color:#141414" align="center">Método del Simpson</td>
+    <td style="color:#141414" align="center">Alta</td>
+    <td style="color:#141414" align="center">Moderada</td>
+    <td style="color:#141414" align="center">Moderada</td>
+  </tr>
+  <tr bgcolor="#e4e4ed">
+    <td style="color:#141414" align="center">Método del Trapecio Compuesto</td>
+    <td style="color:#141414" align="center">Alta</td>
+    <td style="color:#141414" align="center">Alta</td>
+    <td style="color:#141414" align="center">Moderada</td>
+  </tr>
+  <tr bgcolor="#e4e4ed">
+    <td style="color:#141414" align="center">Método de Simpson Compuesto</td>
+    <td style="color:#141414" align="center">Muy alta</td>
+    <td style="color:#141414" align="center">Alta</td>
+    <td style="color:#141414" align="center">Moderada</td>
+  </tr>
+  <tr bgcolor="#e4e4ed">
+    <td style="color:#141414" align="center">Método del Trapecio Adaptativo</td>
+    <td style="color:#141414" align="center">Alta</td>
+    <td style="color:#141414" align="center">Alta (adaptativo)</td>
+    <td style="color:#141414" align="center">Moderada</td>
+  </tr>
+  <tr bgcolor="#e4e4ed">
+    <td style="color:#141414" align="center">Método de Simpson Adaptativo</td>
+    <td style="color:#141414" align="center">Muy alta</td>
+    <td style="color:#141414" align="center">Alta (adaptativo)</td>
+    <td style="color:#141414" align="center">Moderada</td>
+  </tr>
+  <tr bgcolor="#e4e4ed">
+    <td style="color:#141414" align="center">Cuadratura de Gauss-Legendre</td>
+    <td style="color:#141414" align="center">Muy alta</td>
+    <td style="color:#141414" align="center">Alta</td>
+    <td style="color:#141414" align="center">Baja</td>
+  </tr>
+  <tr bgcolor="#e4e4ed">
+    <td style="color:#141414" align="center">Integración de Monte Carlo</td>
+    <td style="color:#141414" align="center">Alta (con suficientes muestras)</td>
+    <td style="color:#141414" align="center">Baja (para gran número de muestras)</td>
+    <td style="color:#141414" align="center">Baja</td>
+  </tr>
+  <tr bgcolor="#e4e4ed">
+    <td style="color:#141414" align="center">Integración de Romberg</td>
+    <td style="color:#141414" align="center">Muy alta</td>
+    <td style="color:#141414" align="center">Alta</td>
+    <td style="color:#141414" align="center">Moderada</td>
+  </tr>
+  <tr bgcolor="#e4e4ed">
+    <td style="color:#141414" align="center">Método de Newton-Cotes Cerrado</td>
+    <td style="color:#141414" align="center">Moderada a Alta</td>
+    <td style="color:#141414" align="center">Moderada</td>
+    <td style="color:#141414" align="center">Moderada</td>
+  </tr>
+  <tr bgcolor="#e4e4ed">
+    <td style="color:#141414" align="center">Método de Newton-Cotes Abierto</td>
+    <td style="color:#141414" align="center">Moderada</td>
+    <td style="color:#141414" align="center">Moderada</td>
+    <td style="color:#141414" align="center">Moderada</td>
+  </tr>
+</table>
+
+
 ## Diagramas de flujo
-Algoritmos preliminares
+Algoritmos aplicados en el programa
+
+### Diagrama de Flujo del Programa General
+```mermaid
+flowchart TD;
+    A[Inicio] 
+    A --> B[Seleccione el método]
+    B --> C[Ingrese la Función]
+    C --> D[Se convierte la función a Notación Polaca Inversa]
+    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
+    E --> F[Se aplica el método]
+    F --> G[Se imprime el resultado]
+    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
+    H -->|Sí| B
+    H -->|No| I[Fin]
+```
+
+### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+```mermaid
+flowchart TD;
+    A[Método del Rectángulo] 
+    A --> B[Base = Limite superior - Limite inferior]
+    B --> C[X_función = Limite superior + Limite inferior]
+    C --> D[Altura = función de X_función]
+    D --> E[Se obtiene la multiplicación a partir del producto de las variables Base y Altura]
+    E --> F[Se imprime el resultado]
+    F --> G[Fin]
+```
+
+### Diagrama de Flujo del Método del Trapecio Simple
+```mermaid
+flowchart TD;
+    A[Método del Rectángulo] 
+    A --> B[Base = Limite superior - Limite inferior]
+    B --> C[X_función = Limite superior + Limite inferior]
+    C --> D[Altura = función de X_función]
+    D --> E[Se obtiene la multiplicación a partir del producto de las variables Base y Altura]
+    E --> F[Se imprime el resultado]
+    F --> G[Fin]
+```
+
+### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+```mermaid
+flowchart TD;
+    A[Inicio] 
+    A --> B[Seleccione el método]
+    B --> C[Ingrese la Función]
+    C --> D[Se convierte la función a Notación Polaca Inversa]
+    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
+    E --> F[Se aplica el método]
+    F --> G[Se imprime el resultado]
+    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
+    H -->|Sí| B
+    H -->|No| I[Fin]
+```
+
+### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+```mermaid
+flowchart TD;
+    A[Inicio] 
+    A --> B[Seleccione el método]
+    B --> C[Ingrese la Función]
+    C --> D[Se convierte la función a Notación Polaca Inversa]
+    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
+    E --> F[Se aplica el método]
+    F --> G[Se imprime el resultado]
+    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
+    H -->|Sí| B
+    H -->|No| I[Fin]
+```
+
+### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+```mermaid
+flowchart TD;
+    A[Inicio] 
+    A --> B[Seleccione el método]
+    B --> C[Ingrese la Función]
+    C --> D[Se convierte la función a Notación Polaca Inversa]
+    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
+    E --> F[Se aplica el método]
+    F --> G[Se imprime el resultado]
+    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
+    H -->|Sí| B
+    H -->|No| I[Fin]
+```
+
+### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+```mermaid
+flowchart TD;
+    A[Inicio] 
+    A --> B[Seleccione el método]
+    B --> C[Ingrese la Función]
+    C --> D[Se convierte la función a Notación Polaca Inversa]
+    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
+    E --> F[Se aplica el método]
+    F --> G[Se imprime el resultado]
+    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
+    H -->|Sí| B
+    H -->|No| I[Fin]
+```
+
+### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+```mermaid
+flowchart TD;
+    A[Inicio] 
+    A --> B[Seleccione el método]
+    B --> C[Ingrese la Función]
+    C --> D[Se convierte la función a Notación Polaca Inversa]
+    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
+    E --> F[Se aplica el método]
+    F --> G[Se imprime el resultado]
+    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
+    H -->|Sí| B
+    H -->|No| I[Fin]
+```
+
+### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+```mermaid
+flowchart TD;
+    A[Inicio] 
+    A --> B[Seleccione el método]
+    B --> C[Ingrese la Función]
+    C --> D[Se convierte la función a Notación Polaca Inversa]
+    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
+    E --> F[Se aplica el método]
+    F --> G[Se imprime el resultado]
+    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
+    H -->|Sí| B
+    H -->|No| I[Fin]
+```
+
+### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+```mermaid
+flowchart TD;
+    A[Inicio] 
+    A --> B[Seleccione el método]
+    B --> C[Ingrese la Función]
+    C --> D[Se convierte la función a Notación Polaca Inversa]
+    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
+    E --> F[Se aplica el método]
+    F --> G[Se imprime el resultado]
+    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
+    H -->|Sí| B
+    H -->|No| I[Fin]
+```
+
+### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+```mermaid
+flowchart TD;
+    A[Inicio] 
+    A --> B[Seleccione el método]
+    B --> C[Ingrese la Función]
+    C --> D[Se convierte la función a Notación Polaca Inversa]
+    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
+    E --> F[Se aplica el método]
+    F --> G[Se imprime el resultado]
+    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
+    H -->|Sí| B
+    H -->|No| I[Fin]
+```
+
+### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+```mermaid
+flowchart TD;
+    A[Inicio] 
+    A --> B[Seleccione el método]
+    B --> C[Ingrese la Función]
+    C --> D[Se convierte la función a Notación Polaca Inversa]
+    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
+    E --> F[Se aplica el método]
+    F --> G[Se imprime el resultado]
+    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
+    H -->|Sí| B
+    H -->|No| I[Fin]
+```
+
+### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+```mermaid
+flowchart TD;
+    A[Inicio] 
+    A --> B[Seleccione el método]
+    B --> C[Ingrese la Función]
+    C --> D[Se convierte la función a Notación Polaca Inversa]
+    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
+    E --> F[Se aplica el método]
+    F --> G[Se imprime el resultado]
+    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
+    H -->|Sí| B
+    H -->|No| I[Fin]
+```
+
 
 ## Resultados
 ###Función compleja
