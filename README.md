@@ -414,16 +414,14 @@ def trapecio_compuesto():
 
 ```mermaid
 flowchart TD;
-    A[Inicio] 
-    A --> B[Seleccione el método]
-    B --> C[Ingrese la Función]
-    C --> D[Se convierte la función a Notación Polaca Inversa]
-    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
-    E --> F[Se aplica el método]
+    A[Método del Trapecio Compuesto] 
+    A --> B[n = número de intervalos]
+    B --> C[h = b-a]
+    C --> D[h = h/n]
+    D --> E[Se suman las imágenes de los limites junto con el resultado de la sumatoria]
+    E --> F[Se multiplica la suma por h/2]
     F --> G[Se imprime el resultado]
-    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
-    H -->|Sí| B
-    H -->|No| I[Fin]
+    G --> H[Fin]
 ```
 
 ### Método de Simpson Compuesto
@@ -482,16 +480,14 @@ def simpson_compuesto():
 
 ```mermaid
 flowchart TD;
-    A[Inicio] 
-    A --> B[Seleccione el método]
-    B --> C[Ingrese la Función]
-    C --> D[Se convierte la función a Notación Polaca Inversa]
-    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
-    E --> F[Se aplica el método]
+    A[Método de Simpson Compuesto] 
+    A --> B[n = número de intervalos que debe ser par]
+    B --> C[h = b-a]
+    C --> D[h = h/n]
+    D --> E[Se suman las imágenes de los limites junto con los resultado de las sumatorias]
+    E --> F[Se multiplica la suma por h/3]
     F --> G[Se imprime el resultado]
-    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
-    H -->|Sí| B
-    H -->|No| I[Fin]
+    G --> H[Fin]
 ```
 
 ### Método del Trapecio Adaptativo
@@ -526,16 +522,18 @@ def trapecio_adaptativo():
 
 ```mermaid
 flowchart TD;
-    A[Inicio] 
-    A --> B[Seleccione el método]
-    B --> C[Ingrese la Función]
-    C --> D[Se convierte la función a Notación Polaca Inversa]
-    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
-    E --> F[Se aplica el método]
-    F --> G[Se imprime el resultado]
-    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
-    H -->|Sí| B
-    H -->|No| I[Fin]
+    A[Método del Trapecio Adaptativo] 
+    A --> B[tol = tolerancia]
+    B --> C[Función del trapecio adaptativo]
+    C --> D[medio = a + b]
+    D --> E[medio = medio /2]
+    E --> F[t1 = aproximación del intervalo completo]
+    F --> G[t2 = suma de las aproximaciones de las integrales de los subintervalos]
+    G --> I[comparar = valor absoluto de t2 - t1]
+    I --> J{comparar < tol}
+    J --> |Si| K[Imprimir t2]
+    J --> |No| C
+    K --> L[Fin]
 ```
 
 ### Método de Simpson Adaptativo
@@ -567,16 +565,24 @@ def simpson_adaptativo():
 
 ```mermaid
 flowchart TD;
-    A[Inicio] 
-    A --> B[Seleccione el método]
-    B --> C[Ingrese la Función]
-    C --> D[Se convierte la función a Notación Polaca Inversa]
-    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
-    E --> F[Se aplica el método]
-    F --> G[Se imprime el resultado]
-    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
-    H -->|Sí| B
-    H -->|No| I[Fin]
+    A[Método de Simpson Adaptativo] 
+    A --> B[tol = tolerancia]
+    B --> C[Función de Simpson adaptativo]
+    C --> D[medio = a + b]
+    D --> E[medio = medio /2]
+    E --> F[s1 = aproximación del intervalo completo]
+    F --> G[s2 = suma de las aproximaciones de las integrales de los subintervalos]
+    G --> I[comparar = valor absoluto de s2 - s1]
+    I --> J{comparar < 15 * tol}
+    J --> |Si| K[Imprimir 2*s2/15 - s1/15]
+    J --> |No| M[tol = tol/2]
+    M --> N[Integral izquierda = ]
+    M --> O[Integral derecha = ]
+    N --> C
+    O --> C
+    N --> P[Imprimi la suma de las integrales por derecha e izquierda]
+    O --> P
+    K --> L[Fin]
 ```
 
 ### Método de Cuadratura de Gauss-Legendre
