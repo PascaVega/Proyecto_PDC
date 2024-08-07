@@ -10,7 +10,7 @@
 2. [Conceptos Clave](#Conceptos-clave)
 3. [Métodos numéricos](#Métodos-numéricos)
 4. [Comparación de métodos](#Comparación-de-métodos)
-5. [Diagramas de flujo](#Diagramas-de-flujo)
+5. [Procedimiento](#Procedimiento)
 5. [Resultados](#Resultados)
 6. [Conclusión](#Conclusión)
 7. [Referencias](#Referencias)
@@ -25,7 +25,7 @@ En las aplicaciones prácticas de la integración se presentan situaciones que n
 
 - **Puntos de evaluación:** Valores específicos en el dominio de la función donde se evalúa la función para aproximar la integral.
   
-- **Pesos: Coeficientes** que se asignan a cada punto de evaluación para ponderar su contribución a la integral aproximada.
+- **Pesos:** Coeficientes que se asignan a cada punto de evaluación para ponderar su contribución a la integral aproximada.
   
 - **Métodos estadísticos:** En integración numérica se aplican para estimar el error y la precisión de las aproximaciones.
   
@@ -35,39 +35,84 @@ En las aplicaciones prácticas de la integración se presentan situaciones que n
   
 
 ## Métodos numéricos
-1.	Método del rectángulo (Regla del punto medio)
+1.	**Método del rectángulo (Regla del punto medio)**
+   
 Es una técnica básica de integración numérica en la que a partir del área de rectángulos se aproxima la integral de una función. Existen tres variaciones principales de este método: <i>regla del rectángulo izquierdo, regla del rectángulo derecho y regla del punto medio. </i> En esta ocasión únicamente se hace uso de la <b>regla del punto medio</b>, en donde se calcula la altura de los rectángulos a partir del valor de la función en el punto medio de cada subintervalo.
-Fórmula:
-2.	Método del Trapecio
+
+**Fórmula:**
+
+$$\int_{a}^{b} f(x) \ dx \approx (b-a) \cdot f\left(\frac{a+b}{2}\right)$$
+
+2.	**Método del Trapecio**
+
 En esta técnica se aproxima la integral definida de la función dividiendo el área bajo la curva en trapecios, lo que proporciona una estimación más precisa.
-Fórmula:
-3.	Método de Simpson
+
+**Fórmula:**
+
+$$\int_{a}^{b} f(x) \ dx \approx \frac{b-a}{2} \left( f(a) + f(b) \right)$$
+
+3.	**Método de Simpson**
+
 En este método se utilizan parábola para aproximar la integral de una función definida, debido a que se logran obtener mejores aproximaciones usando segmentos curvos en vez de líneas rectas.
-Fórmula:
-4.	Método del Trapecio Compuesto
+
+**Fórmula:**
+
+$$\int_{a}^{b} f(x) \ dx \approx \frac{b-a}{6} \left( f(a) + 4f\left(\frac{a+b}{2}\right) + f(b) \right)$$
+
+4.	**Método del Trapecio Compuesto**
+
 Esta técnica aplica el método del trapecio en subintervalos más pequeños y suma los resultados, de tal manera que se mejora la precisión al dividir el intervalo en <i>n</i> subintervalos.
-Formula:
-5.	Método de Simpson Compuesto
+
+**Formula:**
+
+$$\int_{a}^{b} f(x) \ dx \approx \frac{b-a}{2n} \left( f(a) + 2 \cdot \sum_{k=1}^{n-1} f\left(x_{k}\right) + f(b) \right)$$
+
+5.	**Método de Simpson Compuesto**
+
 Para esta aproximación se emplea la regla de Simpson en múltiples subintervalos del intervalo total, de esa manera se mejora la precisión.
-Formula:
-6.	Método del Trapecio Adaptativo
+
+**Formula:**
+
+$$\int_{a}^{b} f(x) \ dx \approx \frac{b-a}{3n} \left( f(a) + 4 \sum_{k=1}^{n-1} f\left( x_{k} \right) + 2 \sum_{k=1}^{n-2} f\left(x_{k}\right) + f(b) \right)$$
+
+6.	**Método del Trapecio Adaptativo**
+
 Esta técnica ajusta dinámicamente el tamaño de los subintervalos en función del error estimado, empleando más subdivisiones donde la función varia más y reduciendo el número donde la función es más suave.
+
 <b>Procedimiento:</b> Inicialmente se divide el intervalo inicial y se calcula el error. Luego, se evalúa si el error es mayor que un umbral dado, de serlo, se subdivide en más partes los intervalos con mayor error. Y este proceso se repite hasta que el error en cada subintervalo esté dentro del límite tolerado.
-7.	Método de Simpson Adaptativo
+
+7.	**Método de Simpson Adaptativo**
+
 Similar a la técnica anterior, se ajustan los subintervalos según el error estimado, pero se utiliza la regla de Simpson.
+
 <b>Procedimiento:</b> Inicialmente se divide el intervalo inicial y se calcula el error. Luego, se evalúa si el error es mayor que un umbral dado, de serlo, se subdivide en más partes los intervalos con mayor error. Y este proceso se repite hasta que el error en cada subintervalo esté dentro del límite tolerado.
-8.	Cuadratura de Gauss-Legendre
+
+8.	**Cuadratura de Gauss-Legendre**
+
 En este método se utilizan los puntos de evaluación y los pesos optimizados para maximizar la exactitud en los polinomios de grado dado. 
-Formula:
-9.	Integración de Monte Carlo
+
+**Formula:**
+
+$$\int_{a}^{b} f(x) \ dx \approx \frac{b-a}{2} \cdot \sum_{i=1}^{n} w_i \cdot f\left(\frac{b-a}{2} x_i + \frac{a+b}{2}\right)$$
+
+9.	**Integración de Monte Carlo**
+
 En esta técnica se utilizan métodos estadísticos para aproximar la integral definida (bastante útiles en espacios de alta dimensión). Este consiste en la generación de números aleatorios para estimar el valor medio de la función.
+
 <b>Procedimiento:</b> Primero se generan un grupo de puntos aleatorios en el dominio de la función y se evalúa la función en ellos. Luego se calcula la media de esas evaluaciones y se multiplica por el volumen del dominio.
-10.	Integración de Romberg
+
+10.	**Integración de Romberg**
+
 Es un método de refinamiento que combina el <i>método del trapecio</i> con la <i>extrapolación de Richardson </i> para mejorar la precisión.
+
 <b>Procedimiento:</b> Se inicia con el método del Trapecio Compuesto para después aplicar la extrapolación de Richardson repetidamente, con el fin de obtener estimaciones de orden superior de la integral.
-11.	Método de Newton-Cotes Cerrado
+
+11.	**Método de Newton-Cotes Cerrado**
+
 Se utilizan polinomios de interpolación construidos a partir de puntos de evaluación equiespaciados que incluyen los extremos del intervalo.
-12.	Método de Newton-Cotes Abierto
+
+12.	**Método de Newton-Cotes Abierto**
+
 Esta técnica también utiliza polinomios de interpolación, pero los puntos de evaluación no incluyen los extremos del intervalo.
 
 
@@ -156,8 +201,8 @@ Cada método tiene sus propias aplicaciones y es adecuado para diferentes tipos 
 </table>
 
 
-## Diagramas de flujo
-Algoritmos aplicados en el programa
+## Procedimiento
+En esta sección se encontrarán los diagramas de flujo preliminares y finalmente cómo se construyó en Python.
 
 ### Diagrama de Flujo del Programa General
 ```mermaid
@@ -174,7 +219,41 @@ flowchart TD;
     H -->|No| I[Fin]
 ```
 
-### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+### Método del rectángulo (Regla del punto medio)
+
+```python
+def rectangulo_simple():
+
+    #Se definen las variables para los límites de integración
+    a : float = 0
+    b : float = 0
+
+    #Se ingresa la función y los límites de integración
+    funcion : str = ingresar_funcion()
+    a,b = limites_integracion()
+
+    #Se define la variable a integrar
+    variable : str = input("Ingrese la variable por la cual se va a integrar: ")
+
+    """
+    Para este método se utiliza la siguiente formula
+    para realizar la aproximación de la integral: (b-a)*f((a+b)/2)
+    """
+
+    base : float = b-a
+    x_funcion : float = (a+b)/2
+
+    #Se define un diccionario para evaluar la variable en la función
+    variables = {variable : x_funcion}
+    altura : float = evaluar_expresion(funcion, variables)
+    resultado : float = base*altura
+
+    #Se imprime el resultado
+    print(f"Por el método del Réctangulo Simple, el resultado es {resultado}")
+
+    return
+```
+
 ```mermaid
 flowchart TD;
     A[Método del Rectángulo] 
@@ -186,19 +265,153 @@ flowchart TD;
     F --> G[Fin]
 ```
 
-### Diagrama de Flujo del Método del Trapecio Simple
+### Método del Trapecio Simple
+
+```python
+def trapecio_simple():
+
+    #Se definen las variables para los límites de integración
+    a : float = 0
+    b : float = 0
+
+    #Se ingresa la función y los límites de integración
+    funcion : str = ingresar_funcion()
+    a,b = limites_integracion()
+
+    #Se define la variable a integrar
+    variable : str = input("Ingrese la variable por la cual se va a integrar: ")
+
+    """
+    Para este método se utiliza la siguiente formula
+    para realizar la aproximación de la integral: ((b-a)/2) * [f(a)+f(b)]
+    """
+
+    base : float = (b-a)/2
+
+    #Se define un diccionario para evaluar la variable en la función
+    funcion_a = {variable : a}
+    funcion_b = {variable : b}
+    resultado_a : float = evaluar_expresion(funcion, funcion_a)
+    resultado_b : float = evaluar_expresion(funcion, funcion_b)
+    resultado : float = base*(resultado_a+resultado_b)
+
+    #Se imprime el resultado
+    print(f"Por el método del Trapecio Simple, el resultado es {resultado}")
+
+    return
+```
+
 ```mermaid
 flowchart TD;
-    A[Método del Rectángulo] 
+    A[Método del Trapecio Simple] 
     A --> B[Base = Limite superior - Limite inferior]
-    B --> C[X_función = Limite superior + Limite inferior]
-    C --> D[Altura = función de X_función]
+    B --> C[Base = Base/2]
+    C --> D[Altura = función de Limite superior + función de Limite inferior]
     D --> E[Se obtiene la multiplicación a partir del producto de las variables Base y Altura]
     E --> F[Se imprime el resultado]
     F --> G[Fin]
 ```
 
-### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+### Método de Simpson Simple
+
+```python
+def simpson_simple():
+
+    #Se definen las variables para los límites de integración
+    a : float = 0
+    b : float = 0
+
+    #Se ingresa la función y los límites de integración
+    funcion : str = ingresar_funcion()
+    a,b = limites_integracion()
+
+    #Se define la variable a integrar
+    variable : str = input("Ingrese la variable por la cual se va a integrar: ")
+
+    """Para este método se utiliza la siguiente formula
+    para realizar la aproximación de la integral: ((b-a)/6) * [f(a) + 4*f((a+b)/2) + f(b)]
+    """
+    base : float = (b-a)/6
+    c : float = (a+b)/2
+
+    #Se define un diccionario para evaluar la variable en la función
+    funcion_a = {variable : a}
+    funcion_b = {variable : b}
+    funcion_c = {variable : c}
+    resultado_a : float = evaluar_expresion(funcion, funcion_a)
+    resultado_b : float = evaluar_expresion(funcion, funcion_b)
+    resultado_c : float = evaluar_expresion(funcion, funcion_c)
+    resultado : float = base*(resultado_a + resultado_b + 4*resultado_c)
+
+    #Se imprime el resultado
+    print(f"Por el método del Simpson Simple, el resultado es {resultado}")
+    return
+```
+
+```mermaid
+flowchart TD;
+    A[Método de Simpson Simple] 
+    A --> B[Base = Limite superior - Limite inferior]
+    B --> C[Base = Base/6]
+    C --> D[Altura = función de Limite superior + función de Limite inferior]
+    D --> E[Altura = Altura + 4 * función del promedio de los límites]
+    E --> F[Se obtiene la multiplicación a partir del producto de las variables Base y Altura]
+    F --> G[Se imprime el resultado]
+    G --> H[Fin]
+```
+
+### Método del Trapecio Compuesto
+
+```python
+def trapecio_compuesto():
+
+    #Se definen las variables para los límites de integración
+    a : float = 0
+    b : float = 0
+
+    #Se ingresa la función y los límites de integración
+    funcion : str = ingresar_funcion()
+    a,b = limites_integracion()
+
+    #Se define la variable a integrar y el número de subintervalos
+    variable : str = input("Ingrese la variable por la cual se va a integrar: ")
+    n : int = int(input("Introduce el número de subintervalos: "))
+
+    """Para este método se utiliza la siguiente formula
+    para realizar la aproximación de la integral: 
+    (h/2) * [f(a) + 2 ∑ i=1 n-1 f(a+ih) + f(b)]
+    """
+    #Se define la variable base del intervalo
+    h : float = (b - a) / n
+
+    #Se evalúan los extremos iniciales
+    funcion_a : dict= {variable: a}
+    funcion_b : dict= {variable: b}
+    resultado_a : float= evaluar_expresion(funcion, funcion_a)
+    resultado_b : float= evaluar_expresion(funcion, funcion_b)
+
+    #Suma de los extremos
+    resultado : float = (resultado_a + resultado_b)
+
+    result : float = 0
+
+    #Se calcula el área de los subintervalos
+    for i in range(1, n):
+        x = a + i * h
+        funcion_x = {variable: x}
+        result += evaluar_expresion(funcion, funcion_x)
+
+    resultado += (result*2)
+
+    #Se multiplica por el tamaño de los subintervalos
+    resultado *= (h/2)
+
+    #Se imprime el resultado
+    print(f"Por el método del Trapecio compuesto, el resultado es {resultado}")
+
+    return
+```
+
 ```mermaid
 flowchart TD;
     A[Inicio] 
@@ -213,7 +426,60 @@ flowchart TD;
     H -->|No| I[Fin]
 ```
 
-### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+### Método de Simpson Compuesto
+
+```python
+def simpson_compuesto():
+
+    #Se definen las variables para los límites de integración
+    a : float = 0
+    b : float = 0
+
+    #Se ingresa la función y los límites de integración
+    funcion : str = ingresar_funcion()
+    a,b = limites_integracion()
+
+    #Se define la variable a integrar y el número de subintervalos
+    variable : str = input("Ingrese la variable por la cual se va a integrar: ")
+    n : int = int(input("Introduce el número de subintervalos (debe ser un número par): "))
+
+    if n % 2 != 0:
+        raise ValueError("El número de subintervalos debe ser par.")
+
+    """Para este método se utiliza la siguiente formula
+    para realizar la aproximación de la integral:
+    (h/3) * [f(a) + 4 ∑ n-1 i=1,3,5... f(a+ih) + 2 ∑ n-2 i=2,4,6... f(a+ih) + f(b)]
+    """
+    #Se define la variable base del intervalo
+    h : float = (b - a) / n
+
+    #Se evalúan los extremos iniciales
+    funcion_a : dict = {variable: a}
+    funcion_b : dict = {variable: b}
+    resultado_a : float= evaluar_expresion(funcion, funcion_a)
+    resultado_b : float= evaluar_expresion(funcion, funcion_b)
+
+    #Inicializar suma de Simpson
+    resultado : float = resultado_a + resultado_b
+
+    #Sumar las evaluaciones de los puntos intermedios
+    for i in range(1, n):
+        x = a + i * h
+        funcion_x = {variable: x}
+        if i % 2 == 0:
+            resultado += 2 * evaluar_expresion(funcion, funcion_x)
+        else:
+            resultado += 4 * evaluar_expresion(funcion, funcion_x)
+
+    #Se multiplica por el tamaño de los subintervalos y se divide por 3
+    resultado *= h / 3
+
+    #Se imprime el resultado
+    print(f"Por el método del Simpson compuesto, el resultado es {resultado}")
+
+    return
+```
+
 ```mermaid
 flowchart TD;
     A[Inicio] 
@@ -228,7 +494,36 @@ flowchart TD;
     H -->|No| I[Fin]
 ```
 
-### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+### Método del Trapecio Adaptativo
+
+```python
+def trapecio_adaptativo():
+
+    #Se definen las variables para los límites de integración
+    a : float = 0
+    b : float = 0
+
+    #Se ingresa la función y los límites de integración
+    funcion : str = ingresar_funcion()
+    a,b = limites_integracion()
+
+    #Se define la variable a integrar y la tolerancia
+    variable : str = input("Ingrese la variable por la cual se va a integrar: ")
+    tol : float = float(input("Introduce la tolerancia: "))
+
+    """
+    Para este método se utiliza el método del trapecio simple,
+    en donde se implementa un criterio de adaptación.
+    """
+
+    resultado : float = trapecio_adaptativo_funcion(funcion, a, b, variable, tol)
+
+    #Se imprime el resultado
+    print(f"Por el método del Trapecio Adaptativo, el resultado es {resultado}")
+
+    return
+```
+
 ```mermaid
 flowchart TD;
     A[Inicio] 
@@ -243,7 +538,33 @@ flowchart TD;
     H -->|No| I[Fin]
 ```
 
-### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+### Método de Simpson Adaptativo
+
+```python
+def simpson_adaptativo():
+
+    #Se definen las variables para los límites de integración
+    a : float = 0
+    b : float = 0
+
+    #Se ingresa la función y los límites de integración
+    funcion : str = ingresar_funcion()
+    a,b = limites_integracion()
+
+    #Se define la variable a integrar y la tolerancia
+    variable : str = input("Ingrese la variable por la cual se va a integrar: ")
+    tol : float = float(input("Introduce la tolerancia: "))
+
+    """Para este método se apoya del método simpson simple
+    y se parte de un criterio de adaptación.
+    """
+    resultado : float  = simpson_adaptativo_funcion(funcion, a, b, variable, tol)
+
+    #Se imprime el resultado
+    print(f"Por el método del Simpson Adaptativo, el resultado es {resultado}")
+    return
+```
+
 ```mermaid
 flowchart TD;
     A[Inicio] 
@@ -258,7 +579,31 @@ flowchart TD;
     H -->|No| I[Fin]
 ```
 
-### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+### Método de Cuadratura de Gauss-Legendre
+
+```python
+def Gauss_Legendre():
+
+    #Se definen las variables para los límites de integración
+    a : float = 0
+    b : float = 0
+
+    #Se ingresa la función y los límites de integración
+    funcion : str = ingresar_funcion()
+    a,b = limites_integracion()
+
+    #Número de puntos de Gauss-Legendre
+    n : int = int(input("Introduce el número de puntos para la cuadratura de Gauss-Legendre: "))
+
+    #Calcular la integral utilizando la cuadratura de Gauss-Legendre
+    resultado : float = cuadratura_gauss_legendre(funcion, a, b, n)
+
+    #Imprimir el resultado
+    print(f"La aproximación de la integral utilizando la cuadratura de Gauss-Legendre es: {resultado}")
+
+    return
+```
+
 ```mermaid
 flowchart TD;
     A[Inicio] 
@@ -273,7 +618,37 @@ flowchart TD;
     H -->|No| I[Fin]
 ```
 
-### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+### Método de Monte Carlo
+
+```python
+def monte_Carlo():
+
+    #Se definen las variables para los límites de integración
+    a : float = 0
+    b : float = 0
+
+    #Se ingresa la función y los límites de integración
+    funcion : str = ingresar_funcion()
+    a,b = limites_integracion()
+
+    #Número de puntos de la muestra
+    n : int = int(input("Introduce el número de puntos de la muestra: "))
+
+    """
+    Para este método se utiliza la siguiente formula
+    para realizar la aproximación de la integral: 
+    (b-a)/n * ∑ i=1 n f(x_i)
+    """
+
+    #Calcular la integral utilizando el método de Monte Carlo
+    resultado : float = monte_Carlo_funcion(funcion, a, b, n)
+
+    #Imprimir el resultado
+    print(f"La aproximación de la integral con el método de Monte Carlo: {resultado}")
+
+    return
+```
+
 ```mermaid
 flowchart TD;
     A[Inicio] 
@@ -288,7 +663,40 @@ flowchart TD;
     H -->|No| I[Fin]
 ```
 
-### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+### Método de Romberg
+
+```python
+def romberg():
+    
+    #Se definen las variables para los límites de integración
+    a : float = 0
+    b : float = 0
+
+    #Se ingresa la función y los límites de integración
+    funcion : str = ingresar_funcion()
+    a,b = limites_integracion()
+
+    #Número máximo de iteraciones (profundidad de la tabla de Romberg)
+    max_iter : int = int(input("Introduce el número máximo de iteraciones: "))
+
+    """
+    Para esta técnica se integra por trapecios a diferentes niveles de refinación, 
+    luego se utiliza la extrapolación de Richardson para mejorar la precisión de la estimación de la integral.
+    """
+
+    #Calcular la integral utilizando el método Romberg
+    resultado = romberg_funcion(funcion, a, b, max_iter)
+
+    #Mostrar la tabla de Romberg
+    print("Tabla de Romberg:")
+    for i in range(len(resultado)):
+        for j in range(i + 1):
+            print(f"resultado[{i}][{j}] = {resultado[i][j]:.10f}", end="  ")
+    print()
+
+    return
+```
+
 ```mermaid
 flowchart TD;
     A[Inicio] 
@@ -303,7 +711,48 @@ flowchart TD;
     H -->|No| I[Fin]
 ```
 
-### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
+### Método de Newton Cotes-Cerrado
+
+```python
+def newton_cotes_cerrado():
+
+    #Se definen las variables para los límites de integración
+    a : float = 0
+    b : float = 0
+
+    #Se ingresa la función y los límites de integración
+    funcion : str = ingresar_funcion()
+    a,b = limites_integracion()
+
+    #Número máximo de iteraciones (profundidad de la tabla de Romberg)
+    n : int = int(input("Introduce el número de subintervalos: "))
+
+    #Se define la variable a integrar
+    variable : str = input("Ingrese la variable por la cual se va a integrar: ")
+
+    #Ancho de cada subintervalo
+    h : float = (b - a) / n
+
+    """
+    Se utiliza un polinomio interpolador en el intervalo cerrado [a,b].
+    La fórmula básica es:
+    I ≈ (b-a)/n * [f(a)/2 + ∑ i=1 n-1 f(a+i*h) + f(b)/2]
+    """
+    #Suma de los términos internos
+    suma = 0.0
+    for i in range(1, n):
+        x_i = a + i * h
+        suma += evaluar_expresion(funcion, {variable : x_i})
+
+    #Se aplica la fórmula de Newton-Cotes cerrado
+    integral : float= (h / 2) * (evaluar_expresion(funcion, {variable : a}) + 2 * suma + evaluar_expresion(funcion, {variable : b}))
+
+    #Imprimir el resultado
+    print(f"La aproximación de la integral con el método de Monte Carlo: {integral}")
+
+    return
+```
+
 ```mermaid
 flowchart TD;
     A[Inicio] 
@@ -318,22 +767,49 @@ flowchart TD;
     H -->|No| I[Fin]
 ```
 
-### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
-```mermaid
-flowchart TD;
-    A[Inicio] 
-    A --> B[Seleccione el método]
-    B --> C[Ingrese la Función]
-    C --> D[Se convierte la función a Notación Polaca Inversa]
-    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
-    E --> F[Se aplica el método]
-    F --> G[Se imprime el resultado]
-    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
-    H -->|Sí| B
-    H -->|No| I[Fin]
+### Método de Newton-Cotes Abierto
+
+```python
+def newton_cotes_abierto():
+
+    #Se definen las variables para los límites de integración
+    a : float = 0
+    b : float = 0
+
+    #Se ingresa la función y los límites de integración
+    funcion : str = ingresar_funcion()
+    a,b = limites_integracion()
+
+    #Número máximo de iteraciones (profundidad de la tabla de Romberg)
+    n : int = int(input("Introduce el número de subintervalos: "))
+
+    #Se define la variable a integrar
+    variable : str = input("Ingrese la variable por la cual se va a integrar: ")
+
+    #Ancho de cada subintervalo
+    h : float = (b - a) / n
+
+    """
+    Se utiliza una fórmula de interpolación polinómica basada en puntos internos
+    La fórmula general es:
+    I ≈ (b-a)/n * [1/(n+1) * ∑ i=1 n f(a+i*h)]
+    """
+
+    #Suma de los términos internos
+    suma = 0.0
+    for i in range(1, n + 1):
+        x_i = a + i * h
+        suma += evaluar_expresion(funcion, {variable : x_i})
+
+    #Aplicar la fórmula de Newton-Cotes abierto
+    integral : float = h * (suma / (n + 1))
+
+    #Imprimir el resultado
+    print(f"La aproximación de la integral con el método de Monte Carlo: {integral}")
+
+    return
 ```
 
-### Diagrama de Flujo del Método del rectángulo (Regla del punto medio)
 ```mermaid
 flowchart TD;
     A[Inicio] 
