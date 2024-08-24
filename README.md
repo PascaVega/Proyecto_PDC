@@ -825,9 +825,25 @@ $$
 \int_{18}^{30} \left( x^3 + \sin(2x) - 2x^2 + 15 \right)
 $$
 
+Al resolver la integral mediante sustitución de variable, esta da como resultado:
+
+$$
+\int_{18}^{30} \left( x^3 + \sin(2x) - 2x^2 + 15 \right) \approx 162323,68601815
+$$
+
+Para cada método de aproximo la integral, y teniendo en cuenta que el valor real de la función es 162323.6860, se calcula el error relativo.
+
+$$
+\text{Error Relativo} = \frac{|V_r - V_a|}{|V_r|} * 100%
+$$
+
 1. Método del Rectángulo (Regla del punto medio)
 
 [![M-todo-Rect-ngulo.png](https://i.postimg.cc/t4VXBBHS/M-todo-Rect-ngulo.png)](https://postimg.cc/v4bFBLTf)
+
+$$
+\text{Error Relativo} = \frac{|162323.6860 - 152234.7809|}{|162323.6860|}
+$$
 
 2. Método del Trapecio
 
