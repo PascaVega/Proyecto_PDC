@@ -612,16 +612,13 @@ def Gauss_Legendre():
 
 ```mermaid
 flowchart TD;
-    A[Inicio] 
-    A --> B[Seleccione el método]
-    B --> C[Ingrese la Función]
-    C --> D[Se convierte la función a Notación Polaca Inversa]
-    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
-    E --> F[Se aplica el método]
-    F --> G[Se imprime el resultado]
-    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
-    H -->|Sí| B
-    H -->|No| I[Fin]
+    A[Método de la Cuadratura de Gauss-Legendre] 
+    A --> B[n = número de puntos de la cuadratura]
+    B --> C[Se obtiene los nodos y pesos a través del método Newton-Raphson]
+    C --> D[x = coordenadas en el intervalo a,b]
+    D --> E[Se evalua la integral]
+    E --> F[Se imprime la integral]
+    F --> H[Fin]
 ```
 
 ### Método de Monte Carlo
@@ -657,16 +654,13 @@ def monte_Carlo():
 
 ```mermaid
 flowchart TD;
-    A[Inicio] 
-    A --> B[Seleccione el método]
-    B --> C[Ingrese la Función]
-    C --> D[Se convierte la función a Notación Polaca Inversa]
-    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
-    E --> F[Se aplica el método]
-    F --> G[Se imprime el resultado]
-    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
-    H -->|Sí| B
-    H -->|No| I[Fin]
+    A[Método de Monte Carlo] 
+    A --> B[n = número de puntos de la muestra]
+    B --> C[Se obtienen los puntos aleatorios de manera uniforme]
+    C --> D[Se evaluan los puntos en la función]
+    D --> E[Se obtiene la aproximación]
+    E --> F[Se imprime la integral]
+    F --> H[Fin]
 ```
 
 ### Método de Romberg
@@ -705,16 +699,15 @@ def romberg():
 
 ```mermaid
 flowchart TD;
-    A[Inicio] 
-    A --> B[Seleccione el método]
-    B --> C[Ingrese la Función]
-    C --> D[Se convierte la función a Notación Polaca Inversa]
-    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
-    E --> F[Se aplica el método]
-    F --> G[Se imprime el resultado]
-    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
-    H -->|Sí| B
-    H -->|No| I[Fin]
+    A[Método de Romberg] 
+    A --> B[max_iter = número máximo de iteraciones]
+    B --> C[Se obtienen los puntos aleatorios de manera uniforme]
+    C --> D[Se crea una matriz]
+    D --> E[Se obtienen las aproximaciones iniciales con la regla del trapezoide]
+    E --> F[Se pulen las aproximaciones con la extrapolación de Richardson]
+    F --> H[Se imprime la matriz]
+    H --> I[Fin]
+
 ```
 
 ### Método de Newton Cotes-Cerrado
@@ -761,16 +754,13 @@ def newton_cotes_cerrado():
 
 ```mermaid
 flowchart TD;
-    A[Inicio] 
-    A --> B[Seleccione el método]
-    B --> C[Ingrese la Función]
-    C --> D[Se convierte la función a Notación Polaca Inversa]
-    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
-    E --> F[Se aplica el método]
-    F --> G[Se imprime el resultado]
-    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
-    H -->|Sí| B
-    H -->|No| I[Fin]
+    A[Método de Newton Cotes-Cerrado] 
+    A --> B[n = número de subintervalos]
+    B --> C[h = ancho de cada subintervalo]
+    C --> D[suma = suma de los terminos internos]
+    D --> E[Se obtiene la aproximación usando la fórmula de Newton-Cotes cerrado]
+    E --> H[Se imprime la aproximación]
+    H --> I[Fin]
 ```
 
 ### Método de Newton-Cotes Abierto
@@ -818,23 +808,101 @@ def newton_cotes_abierto():
 
 ```mermaid
 flowchart TD;
-    A[Inicio] 
-    A --> B[Seleccione el método]
-    B --> C[Ingrese la Función]
-    C --> D[Se convierte la función a Notación Polaca Inversa]
-    D --> E[Se ingresan los límites de integración y otros valores especificos requeridos en el método]
-    E --> F[Se aplica el método]
-    F --> G[Se imprime el resultado]
-    G --> H{Se pregunta al usuario si desea realizar otra aproximación}
-    H -->|Sí| B
-    H -->|No| I[Fin]
+    A[Método de Newton Cotes-Abierto] 
+    A --> B[n = número de subintervalos]
+    B --> C[h = ancho de cada subintervalo]
+    C --> D[suma = suma de los terminos internos]
+    D --> E[Se obtiene la aproximación usando la fórmula de Newton-Cotes abierto]
+    E --> H[Se imprime la aproximación]
+    H --> I[Fin]
 ```
 
 
 ## Resultados
-###Función compleja
+Para evaluar la exactitud de los métodos, se planteó la siguiente integral y se obtuvieron las aproximaciones con todos los métodos
+
+$$
+\int_{18}^{30} \left( x^3 + \sin(2x) - 2x^2 + 15 \right)
+$$
+
+1. Método del Rectángulo (Regla del punto medio)
+
+[![M-todo-Rect-ngulo.png](https://i.postimg.cc/t4VXBBHS/M-todo-Rect-ngulo.png)](https://postimg.cc/v4bFBLTf)
+
+2. Método del Trapecio
+
+[![M-todo-del-Trapecio-Simple.png](https://i.postimg.cc/Pr7XbB0v/M-todo-del-Trapecio-Simple.png)](https://postimg.cc/KRnhxsGm)
+
+3. Método de Simpson
+
+[![M-todo-de-Simpson-Simple.png](https://i.postimg.cc/Zn7TMgRg/M-todo-de-Simpson-Simple.png)](https://postimg.cc/0KSR6V7d)
+
+4. Método del Trapecio Compuesto
+
+[![M-todo-del-Trapecio-Compuesto.png](https://i.postimg.cc/pXrVF2ct/M-todo-del-Trapecio-Compuesto.png)](https://postimg.cc/1fxZxZZW)
+
+5. Método de Simpson Compuesto
+
+[![M-todo-de-Simpson-Compuesto.png](https://i.postimg.cc/90Fm1VWZ/M-todo-de-Simpson-Compuesto.png)](https://postimg.cc/8J9gP2fz)
+
+6. Método del Trapecio Adaptativo
+
+[![M-todo-del-Trapecio-Adaptativo.png](https://i.postimg.cc/ryQFsdJJ/M-todo-del-Trapecio-Adaptativo.png)](https://postimg.cc/RqJzbZ26)
+
+7. Método de Simpson Adaptativo
+
+[![M-todo-de-SImpson-Adaptativo.png](https://i.postimg.cc/nLBhh0Rj/M-todo-de-SImpson-Adaptativo.png)](https://postimg.cc/B8Z0hcG4)
+
+8. Cuadratura de Gauss-Legendre
+
+[![Cuadratura-de-Gauss-Legendre.png](https://i.postimg.cc/MGS8dx5H/Cuadratura-de-Gauss-Legendre.png)](https://postimg.cc/bZ3Mw7Kf)
+
+9. Integración de Monte Carlo
+
+[![M-todo-de-Monte-Carlo.png](https://i.postimg.cc/mgcr0b7S/M-todo-de-Monte-Carlo.png)](https://postimg.cc/fVNZdQ23)
+
+10. Integración de Romberg
+
+[![M-todo-de-Romberg.png](https://i.postimg.cc/mDSZQhGT/M-todo-de-Romberg.png)](https://postimg.cc/HcVCmYxN)
+
+11. Método de Newton-Cotes Cerrado
+
+[![M-todo-de-Newton-Cotes-Cerrado.png](https://i.postimg.cc/1tS5nw2W/M-todo-de-Newton-Cotes-Cerrado.png)](https://postimg.cc/yJfz2gV9)
+
+12. Método de Newton-Cotes Abierto
+
+[![M-todo-de-Newton-Cotes-Abierto.png](https://i.postimg.cc/bwKvPKTf/M-todo-de-Newton-Cotes-Abierto.png)](https://postimg.cc/RWLmQpyg)
+
 
 ## Conclusión
+El desarrollo de este proyecto no solo cumplió la función de afianzar los conocimientos obtenido durante el curso, sino que también ha dado una gran perfectiva sobre algunos de los métodos numéricos. Este programa permite comprar los métodos numéricos a través de su presión y eficiencia de diferentes técnicas de integración, adaptándose a distintas características de las funciones a integrar. 
 
-## Referencias
+Este programa ha dejado en evidencia que la selección del método depende de la función específica, además de que las aproximaciones dependen del intervalo de integración y la precisión requerida. De esa manera, los métodos compuestos y adaptativos generalmente son superiores en términos de precisión, mientras que métodos como Monte Carlo y Gauss-Legendre ofrecen ventajas en situaciones especiales.
+
+Para concluir, el desarrollo y aplicación de este proyecto ha llevado a solidificar los cocimientos ya adquiridos. Al tiempo que se realizaba una tarea interdisciplinar en la que se lograron evaluar distintos aspectos de las integrales, tales que ayudaron a comprender con precisión las diferencias entre los métodos.
+
+## Bibiografía
+1. Burden, R. L., & Faires, J. D. (2011). **Numerical Analysis** (9th ed.). Brooks/Cole. (Método del rectángulo)
+
+2. Chapra, S. C., & Canale, R. P. (2015). **Numerical Methods for Engineers** (7th ed.). McGraw-Hill Education. (Método del Trapecio)
+
+3. Kiusalaas, J. (2013). **Numerical Methods in Engineering with Python 3**. Cambridge University Press. (Método de Simpson)
+
+4. Atkinson, K. E. (1989). **An Introduction to Numerical Analysis** (2nd ed.). John Wiley & Sons. (Método del Trapecio Compuesto)
+
+5. Burden, R. L., & Faires, J. D. (2011). **Numerical Analysis** (9th ed.). Brooks/Cole. (Método de Simpson Compuesto)
+
+6. Press, W. H., Teukolsky, S. A., Vetterling, W. T., & Flannery, B. P. (2007). **Numerical Recipes: The Art of Scientific Computing** (3rd ed.). Cambridge University Press. (Método del Trapecio Adaptativo)
+
+7. Press, W. H., Teukolsky, S. A., Vetterling, W. T., & Flannery, B. P. (2007). **Numerical Recipes: The Art of Scientific Computing** (3rd ed.). Cambridge University Press. (Método de Simpson Adaptativo)
+
+8. Hamming, R. W. (1973). **Numerical Methods for Scientists and Engineers** (2nd ed.). Dover Publications. (Cuadratura de Gauss-Legendre)
+
+9. Metropolis, N., & Ulam, S. (1949). The Monte Carlo Method. *Journal of the American Statistical Association, 44*(247), 335-341. (Integración de Monte Carlo)
+
+10. Stoer, J., & Bulirsch, R. (2002). **Introduction to Numerical Analysis** (3rd ed.). Springer. (Integración de Romberg)
+
+11. Davis, P. J., & Rabinowitz, P. (1984). **Methods of Numerical Integration** (2nd ed.). Academic Press. (Método de Newton-Cotes Cerrado)
+
+12. Davis, P. J., & Rabinowitz, P. (1984). **Methods of Numerical Integration** (2nd ed.). Academic Press. (Método de Newton-Cotes Abierto)
 
