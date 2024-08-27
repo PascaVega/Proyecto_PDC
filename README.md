@@ -1,4 +1,4 @@
-# Proyecto PDC
+# Calculadora de Integrales usando Métodos Numéricos
 
 | Nombre                 | Identificación | Grupo | Trabajo          |
 |------------------------|----------------|-------|------------------|
