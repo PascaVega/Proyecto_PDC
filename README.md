@@ -834,7 +834,7 @@ $$
 Para cada método de aproximo la integral, y teniendo en cuenta que el valor real de la función es 162323.6860, se calcula el error relativo.
 
 $$
-\text{Error Relativo} = \frac{|V_r - V_a|}{|V_r|} * 100\%
+\text{Error Relativo} = \frac{|V_r - V_a|}{|V_r|} \times 100\\%
 $$
 
 1. Método del Rectángulo (Regla del punto medio)
@@ -842,7 +842,7 @@ $$
 [![M-todo-Rect-ngulo.png](https://i.postimg.cc/t4VXBBHS/M-todo-Rect-ngulo.png)](https://postimg.cc/v4bFBLTf)
 
 $$
-\text{Error Relativo} = \frac{|162323.6860 - 152234.7809|}{|162323.6860|} * 100\% \approx 6.2115\%
+\text{Error Relativo} = \frac{|162323.6860 - 152234.7809|}{|162323.6860|} * 100\\% \approx 6.2115\\%
 $$
 
 2. Método del Trapecio
@@ -850,7 +850,7 @@ $$
 [![M-todo-del-Trapecio-Simple.png](https://i.postimg.cc/Pr7XbB0v/M-todo-del-Trapecio-Simple.png)](https://postimg.cc/KRnhxsGm)
 
 $$
-\text{Error Relativo} = \frac{|162323.6860 - 182476.2204|}{|162323.6860|} * 100\% \approx 12.4150\%
+\text{Error Relativo} = \frac{|162323.6860 - 182476.2204|}{|162323.6860|} * 100\\% \approx 12.4150\\%
 $$
 
 3. Método de Simpson
@@ -858,7 +858,7 @@ $$
 [![M-todo-de-Simpson-Simple.png](https://i.postimg.cc/Zn7TMgRg/M-todo-de-Simpson-Simple.png)](https://postimg.cc/0KSR6V7d)
 
 $$
-\text{Error Relativo} = \frac{|162323.6860 - 162315.2607|}{|162323.6860|} * 100\% \approx 0.0051\%
+\text{Error Relativo} = \frac{|162323.6860 - 162315.2607|}{|162323.6860|} * 100\\% \approx 0.0051\\%
 $$
 
 4. Método del Trapecio Compuesto
@@ -866,7 +866,7 @@ $$
 [![M-todo-del-Trapecio-Compuesto.png](https://i.postimg.cc/pXrVF2ct/M-todo-del-Trapecio-Compuesto.png)](https://postimg.cc/1fxZxZZW)
 
 $$
-\text{Error Relativo} = \frac{|162323.6860 - 162326.4262|}{|162323.6860|} * 100\% \approx 0.0016\%
+\text{Error Relativo} = \frac{|162323.6860 - 162326.4262|}{|162323.6860|} * 100\\% \approx 0.0016\\%
 $$
 
 5. Método de Simpson Compuesto
@@ -874,7 +874,7 @@ $$
 [![M-todo-de-Simpson-Compuesto.png](https://i.postimg.cc/90Fm1VWZ/M-todo-de-Simpson-Compuesto.png)](https://postimg.cc/8J9gP2fz)
 
 $$
-\text{Error Relativo} = \frac{|162323.6860 - 162324.4122|}{|162323.6860|} * 100\% \approx 0.0004\%
+\text{Error Relativo} = \frac{|162323.6860 - 162324.4122|}{|162323.6860|} * 100\\% \approx 0.0004\\%
 $$
 
 6. Método del Trapecio Adaptativo
@@ -882,7 +882,7 @@ $$
 [![M-todo-del-Trapecio-Adaptativo.png](https://i.postimg.cc/ryQFsdJJ/M-todo-del-Trapecio-Adaptativo.png)](https://postimg.cc/RqJzbZ26)
 
 $$
-\text{Error Relativo} = \frac{|162323.6860 - 162324.6386|}{|162323.6860|} * 100\% \approx 0.0005%
+\text{Error Relativo} = \frac{|162323.6860 - 162324.6386|}{|162323.6860|} * 100\\% \approx 0.0005\\%
 $$
 
 7. Método de Simpson Adaptativo
@@ -890,7 +890,7 @@ $$
 [![M-todo-de-SImpson-Adaptativo.png](https://i.postimg.cc/nLBhh0Rj/M-todo-de-SImpson-Adaptativo.png)](https://postimg.cc/B8Z0hcG4)
 
 $$
-\text{Error Relativo} = \frac{|162323.6860 - 162315.2659|}{|162323.6860|} * 100\% \approx 0.0051\%
+\text{Error Relativo} = \frac{|162323.6860 - 162315.2659|}{|162323.6860|} * 100\\% \approx 0.0051\\%
 $$
 
 8. Cuadratura de Gauss-Legendre
@@ -898,7 +898,7 @@ $$
 [![Cuadratura-de-Gauss-Legendre.png](https://i.postimg.cc/MGS8dx5H/Cuadratura-de-Gauss-Legendre.png)](https://postimg.cc/bZ3Mw7Kf)
 
 $$
-\text{Error Relativo} = \frac{|162323.6860 - 162324.4122|}{|162323.6860|} * 100\% \approx 0.0004\%
+\text{Error Relativo} = \frac{|162323.6860 - 162324.4122|}{|162323.6860|} * 100\\% \approx 0.0004\\%
 $$
 
 9. Integración de Monte Carlo
@@ -906,7 +906,7 @@ $$
 [![M-todo-de-Monte-Carlo.png](https://i.postimg.cc/mgcr0b7S/M-todo-de-Monte-Carlo.png)](https://postimg.cc/fVNZdQ23)
 
 $$
-\text{Error Relativo} = \frac{|162323.6860 - 168788|}{|162323.6860|} * 100\% \approx 3.9827\%
+\text{Error Relativo} = \frac{|162323.6860 - 168788|}{|162323.6860|} * 100\\% \approx 3.9827\\%
 $$
 
 10. Integración de Romberg
@@ -914,7 +914,7 @@ $$
 [![M-todo-de-Romberg.png](https://i.postimg.cc/mDSZQhGT/M-todo-de-Romberg.png)](https://postimg.cc/HcVCmYxN)
 
 $$
-\text{Error Relativo} = \frac{|162323.6860 - 162324.4122|}{|162323.6860|} * 100\% \approx 0.0004\%
+\text{Error Relativo} = \frac{|162323.6860 - 162324.4122|}{|162323.6860|} * 100\\% \approx 0.0004\\%
 $$
 
 11. Método de Newton-Cotes Cerrado
@@ -922,7 +922,7 @@ $$
 [![M-todo-de-Newton-Cotes-Cerrado.png](https://i.postimg.cc/1tS5nw2W/M-todo-de-Newton-Cotes-Cerrado.png)](https://postimg.cc/yJfz2gV9)
 
 $$
-\text{Error Relativo} = \frac{|162323.6860 - 162326.4262|}{|162323.6860|} * 100\% \approx 162326.4262\%
+\text{Error Relativo} = \frac{|162323.6860 - 162326.4262|}{|162323.6860|} * 100\\% \approx 0.0016\\%
 $$
 
 12. Método de Newton-Cotes Abierto
@@ -930,7 +930,7 @@ $$
 [![M-todo-de-Newton-Cotes-Abierto.png](https://i.postimg.cc/FH322Sfx/M-todo-de-Newton-Cotes-Abierto.png)](https://postimg.cc/qNBbKzxt)
 
 $$
-\text{Error Relativo} = \frac{|162323.6860 - 157606.4698|}{|162323.6860|} * 100\% \approx 2.9060\%
+\text{Error Relativo} = \frac{|162323.6860 - 157606.4698|}{|162323.6860|} * 100\\% \approx 2.9060\\%
 $$
 
 ## Conclusión
