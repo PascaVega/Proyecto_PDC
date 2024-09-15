@@ -1056,7 +1056,7 @@ $$
 [![M-todo-de-Monte-Carlo.png](https://i.postimg.cc/CKbgBy88/M-todo-de-Monte-Carlo.png)](https://postimg.cc/sBf8qNwf)
 
 $$
-\text{Error Relativo} = \frac{|162323.6860 - 168788|}{|162323.6860|} * 100\\% \approx 3.9827\\%
+\text{Error Relativo} = \frac{|162323.6860 - 164685.2860|}{|162323.6860|} * 100\\% \approx 0.014548\\%
 $$
 
 10. Integración de Romberg
