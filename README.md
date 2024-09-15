@@ -1083,12 +1083,12 @@ $$
 \text{Error Relativo} = \frac{|162323.6860 - 157606.4698|}{|162323.6860|} * 100\\% \approx 2.9060\\%
 $$
 
-## Conclusión
-El desarrollo de este proyecto no solo cumplió la función de afianzar los conocimientos obtenido durante el curso, sino que también ha dado una gran perfectiva sobre algunos de los métodos numéricos. Este programa permite comprar los métodos numéricos a través de su presión y eficiencia de diferentes técnicas de integración, adaptándose a distintas características de las funciones a integrar. 
+El desarrollo de este proyecto no solo cumplió la función de afianzar los conocimientos obtenido durante el curso, sino que también ha dado una gran perfectiva sobre algunos de los métodos numéricos. Este programa permite comparar los métodos numéricos a través de su presión y eficiencia de diferentes técnicas de integración, adaptándose a distintas características de las funciones a integrar.
 
-Este programa ha dejado en evidencia que la selección del método depende de la función específica, además de que las aproximaciones dependen del intervalo de integración y la precisión requerida. De esa manera, los métodos compuestos y adaptativos generalmente son superiores en términos de precisión, mientras que métodos como Monte Carlo y Gauss-Legendre ofrecen ventajas en situaciones especiales.
+Este programa ha dejado en evidencia que la selección del método depende de la función específica, además de que las aproximaciones dependen del intervalo de integración y la precisión requerida. No obstante, el tiempo de ejecución que tarda el programa con cada método depende de su precisión, por lo cual aquellos que se tarden más darán una mejor aproximación. De esa manera, los métodos compuestos y adaptativos generalmente son superiores en términos de precisión y tiempo, mientras que métodos como Monte Carlo y Gauss-Legendre ofrecen ventajas en situaciones especiales.
 
-Para concluir, el desarrollo y aplicación de este proyecto ha llevado a solidificar los cocimientos ya adquiridos. Al tiempo que se realizaba una tarea interdisciplinar en la que se lograron evaluar distintos aspectos de las integrales, tales que ayudaron a comprender con precisión las diferencias entre los métodos.
+Para concluir, el desarrollo y aplicación de este proyecto ha llevado a solidificar los cocimientos ya adquiridos. Al tiempo que se realizaba una tarea interdisciplinar en la que se lograron evaluar distintos aspectos de las integrales, tales que ayudaron a comprender con precisión las diferencias entre los métodos y cuál es más ventajoso en determinada situación.
+
 
 ## Bibiografía
 1. Burden, R. L., & Faires, J. D. (2011). **Numerical Analysis** (9th ed.). Brooks/Cole. (Método del rectángulo)
