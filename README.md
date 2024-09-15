@@ -1083,6 +1083,7 @@ $$
 \text{Error Relativo} = \frac{|162323.6860 - 157606.4698|}{|162323.6860|} * 100\\% \approx 2.9060\\%
 $$
 
+##Conclusiones
 El desarrollo de este proyecto no solo cumplió la función de afianzar los conocimientos obtenido durante el curso, sino que también ha dado una gran perfectiva sobre algunos de los métodos numéricos. Este programa permite comparar los métodos numéricos a través de su presión y eficiencia de diferentes técnicas de integración, adaptándose a distintas características de las funciones a integrar.
 
 Este programa ha dejado en evidencia que la selección del método depende de la función específica, además de que las aproximaciones dependen del intervalo de integración y la precisión requerida. No obstante, el tiempo de ejecución que tarda el programa con cada método depende de su precisión, por lo cual aquellos que se tarden más darán una mejor aproximación. De esa manera, los métodos compuestos y adaptativos generalmente son superiores en términos de precisión y tiempo, mientras que métodos como Monte Carlo y Gauss-Legendre ofrecen ventajas en situaciones especiales.
