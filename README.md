@@ -240,6 +240,9 @@ def rectangulo_simple():
     para realizar la aproximación de la integral: (b-a)*f((a+b)/2)
     """
 
+    #Tiempo inicial
+    tiempo_inicial = time.time()
+
     base : float = b-a
     x_funcion : float = (a+b)/2
 
@@ -250,6 +253,15 @@ def rectangulo_simple():
 
     #Se imprime el resultado
     print(f"Por el método del Réctangulo Simple, el resultado es {resultado}")
+    
+    #Tiempo final
+    tiempo_final = time.time()
+
+    #Calcular el tiempo de ejecución
+    duracion = tiempo_final - tiempo_inicial
+
+    #Mostrar el tiempo de ejecución en segundos
+    print(f"El método del rectángulo se ejecutó en {duracion:.6f} segundos.")
 
     return
 ```
@@ -286,6 +298,9 @@ def trapecio_simple():
     para realizar la aproximación de la integral: ((b-a)/2) * [f(a)+f(b)]
     """
 
+    #Tiempo inicial
+    tiempo_inicial = time.time()
+
     base : float = (b-a)/2
 
     #Se define un diccionario para evaluar la variable en la función
@@ -297,6 +312,15 @@ def trapecio_simple():
 
     #Se imprime el resultado
     print(f"Por el método del Trapecio Simple, el resultado es {resultado}")
+
+    #Tiempo final
+    tiempo_final = time.time()
+
+    #Calcular el tiempo de ejecución
+    duracion = tiempo_final - tiempo_inicial
+
+    #Mostrar el tiempo de ejecución en segundos
+    print(f"El método del trapecio simple se ejecutó en {duracion:.6f} segundos.")
 
     return
 ```
@@ -331,6 +355,10 @@ def simpson_simple():
     """Para este método se utiliza la siguiente formula
     para realizar la aproximación de la integral: ((b-a)/6) * [f(a) + 4*f((a+b)/2) + f(b)]
     """
+
+    #Tiempo inicial
+    tiempo_inicial = time.time()
+
     base : float = (b-a)/6
     c : float = (a+b)/2
 
@@ -344,7 +372,17 @@ def simpson_simple():
     resultado : float = base*(resultado_a + resultado_b + 4*resultado_c)
 
     #Se imprime el resultado
-    print(f"Por el método del Simpson Simple, el resultado es {resultado}")
+    print(f"Por el método de Simpson Simple, el resultado es {resultado}")
+
+    #Tiempo final
+    tiempo_final = time.time()
+
+    #Calcular el tiempo de ejecución
+    duracion = tiempo_final - tiempo_inicial
+
+    #Mostrar el tiempo de ejecución en segundos
+    print(f"El método de Simpson simple se ejecutó en {duracion:.6f} segundos.")
+
     return
 ```
 
@@ -381,6 +419,10 @@ def trapecio_compuesto():
     para realizar la aproximación de la integral: 
     (h/2) * [f(a) + 2 ∑ i=1 n-1 f(a+ih) + f(b)]
     """
+
+    #Tiempo inicial
+    tiempo_inicial = time.time()
+
     #Se define la variable base del intervalo
     h : float = (b - a) / n
 
@@ -408,6 +450,15 @@ def trapecio_compuesto():
 
     #Se imprime el resultado
     print(f"Por el método del Trapecio compuesto, el resultado es {resultado}")
+
+    #Tiempo final
+    tiempo_final = time.time()
+
+    #Calcular el tiempo de ejecución
+    duracion = tiempo_final - tiempo_inicial
+
+    #Mostrar el tiempo de ejecución en segundos
+    print(f"El método del trapecio compuesto se ejecutó en {duracion:.6f} segundos.")
 
     return
 ```
@@ -448,6 +499,10 @@ def simpson_compuesto():
     para realizar la aproximación de la integral:
     (h/3) * [f(a) + 4 ∑ n-1 i=1,3,5... f(a+ih) + 2 ∑ n-2 i=2,4,6... f(a+ih) + f(b)]
     """
+
+    #Tiempo inicial
+    tiempo_inicial = time.time()
+
     #Se define la variable base del intervalo
     h : float = (b - a) / n
 
@@ -474,6 +529,15 @@ def simpson_compuesto():
 
     #Se imprime el resultado
     print(f"Por el método del Simpson compuesto, el resultado es {resultado}")
+
+    #Tiempo final
+    tiempo_final = time.time()
+
+    #Calcular el tiempo de ejecución
+    duracion = tiempo_final - tiempo_inicial
+
+    #Mostrar el tiempo de ejecución en segundos
+    print(f"El método de simpson compuesto se ejecutó en {duracion:.6f} segundos.")
 
     return
 ```
@@ -512,10 +576,22 @@ def trapecio_adaptativo():
     en donde se implementa un criterio de adaptación.
     """
 
+    #Tiempo inicial
+    tiempo_inicial = time.time()
+
     resultado : float = trapecio_adaptativo_funcion(funcion, a, b, variable, tol)
 
     #Se imprime el resultado
     print(f"Por el método del Trapecio Adaptativo, el resultado es {resultado}")
+
+    #Tiempo final
+    tiempo_final = time.time()
+
+    #Calcular el tiempo de ejecución
+    duracion = tiempo_final - tiempo_inicial
+
+    #Mostrar el tiempo de ejecución en segundos
+    print(f"El método del trapecio adaptativo se ejecutó en {duracion:.6f} segundos.")
 
     return
 ```
@@ -556,10 +632,24 @@ def simpson_adaptativo():
     """Para este método se apoya del método simpson simple
     y se parte de un criterio de adaptación.
     """
+
+    #Tiempo inicial
+    tiempo_inicial = time.time()
+
     resultado : float  = simpson_adaptativo_funcion(funcion, a, b, variable, tol)
 
     #Se imprime el resultado
     print(f"Por el método del Simpson Adaptativo, el resultado es {resultado}")
+
+    #Tiempo final
+    tiempo_final = time.time()
+
+    #Calcular el tiempo de ejecución
+    duracion = tiempo_final - tiempo_inicial
+
+    #Mostrar el tiempo de ejecución en segundos
+    print(f"El método de simpson adaptativo se ejecutó en {duracion:.6f} segundos.")
+
     return
 ```
 
@@ -601,11 +691,23 @@ def Gauss_Legendre():
     #Número de puntos de Gauss-Legendre
     n : int = int(input("Introduce el número de puntos para la cuadratura de Gauss-Legendre: "))
 
+    #Tiempo inicial
+    tiempo_inicial = time.time()
+
     #Calcular la integral utilizando la cuadratura de Gauss-Legendre
     resultado : float = cuadratura_gauss_legendre(funcion, a, b, n)
 
     #Imprimir el resultado
     print(f"La aproximación de la integral utilizando la cuadratura de Gauss-Legendre es: {resultado}")
+
+    #Tiempo final
+    tiempo_final = time.time()
+
+    #Calcular el tiempo de ejecución
+    duracion = tiempo_final - tiempo_inicial
+
+    #Mostrar el tiempo de ejecución en segundos
+    print(f"El método de la cuadratura de Gauss Legendre se ejecutó en {duracion:.6f} segundos.")
 
     return
 ```
@@ -643,11 +745,23 @@ def monte_Carlo():
     (b-a)/n * ∑ i=1 n f(x_i)
     """
 
+    #Tiempo inicial
+    tiempo_inicial = time.time()
+
     #Calcular la integral utilizando el método de Monte Carlo
     resultado : float = monte_Carlo_funcion(funcion, a, b, n)
 
     #Imprimir el resultado
     print(f"La aproximación de la integral con el método de Monte Carlo: {resultado}")
+
+    #Tiempo final
+    tiempo_final = time.time()
+
+    #Calcular el tiempo de ejecución
+    duracion = tiempo_final - tiempo_inicial
+
+    #Mostrar el tiempo de ejecución en segundos
+    print(f"El método de monte carlo se ejecutó en {duracion:.6f} segundos.")
 
     return
 ```
@@ -684,6 +798,9 @@ def romberg():
     luego se utiliza la extrapolación de Richardson para mejorar la precisión de la estimación de la integral.
     """
 
+    #Tiempo inicial
+    tiempo_inicial = time.time()
+
     #Calcular la integral utilizando el método Romberg
     resultado = romberg_funcion(funcion, a, b, max_iter)
 
@@ -692,7 +809,15 @@ def romberg():
     for i in range(len(resultado)):
         for j in range(i + 1):
             print(f"resultado[{i}][{j}] = {resultado[i][j]:.10f}", end="  ")
-    print()
+    
+    #Tiempo final
+    tiempo_final = time.time()
+
+    #Calcular el tiempo de ejecución
+    duracion = tiempo_final - tiempo_inicial
+
+    #Mostrar el tiempo de ejecución en segundos
+    print(f"El método de Romberg se ejecutó en {duracion:.6f} segundos.")
 
     return
 ```
@@ -737,6 +862,10 @@ def newton_cotes_cerrado():
     La fórmula básica es:
     I ≈ (b-a)/n * [f(a)/2 + ∑ i=1 n-1 f(a+i*h) + f(b)/2]
     """
+
+    #Tiempo inicial
+    tiempo_inicial = time.time()
+
     #Suma de los términos internos
     suma = 0.0
     for i in range(1, n):
@@ -747,7 +876,16 @@ def newton_cotes_cerrado():
     integral : float= (h / 2) * (evaluar_expresion(funcion, {variable : a}) + 2 * suma + evaluar_expresion(funcion, {variable : b}))
 
     #Imprimir el resultado
-    print(f"La aproximación de la integral con el método de Monte Carlo: {integral}")
+    print(f"La aproximación de la integral con el método de Cotes-Cerrado: {integral}")
+
+    #Tiempo final
+    tiempo_final = time.time()
+
+    #Calcular el tiempo de ejecución
+    duracion = tiempo_final - tiempo_inicial
+
+    #Mostrar el tiempo de ejecución en segundos
+    print(f"El método de Newton Cotes-cerrado se ejecutó en {duracion:.6f} segundos.")
 
     return
 ```
@@ -783,13 +921,16 @@ def newton_cotes_abierto():
     variable : str = input("Ingrese la variable por la cual se va a integrar: ")
 
     #Ancho de cada subintervalo
-    h : float = (b - a) / n
+    h: float = (b - a) / (n + 2) 
 
     """
     Se utiliza una fórmula de interpolación polinómica basada en puntos internos
     La fórmula general es:
     I ≈ (b-a)/n * [1/(n+1) * ∑ i=1 n f(a+i*h)]
     """
+
+    #Tiempo inicial
+    tiempo_inicial = time.time()
 
     #Suma de los términos internos
     suma = 0.0
@@ -798,10 +939,19 @@ def newton_cotes_abierto():
         suma += evaluar_expresion(funcion, {variable : x_i})
 
     #Aplicar la fórmula de Newton-Cotes abierto
-    integral : float = h * (suma / (n + 1))
+    integral : float = h * suma
 
     #Imprimir el resultado
-    print(f"La aproximación de la integral con el método de Monte Carlo: {integral}")
+    print(f"La aproximación de la integral con el método de Cotes-Abierto: {integral}")
+
+    #Tiempo final
+    tiempo_final = time.time()
+
+    #Calcular el tiempo de ejecución
+    duracion = tiempo_final - tiempo_inicial
+
+    #Mostrar el tiempo de ejecución en segundos
+    print(f"El método de Newton Cotes-abierto se ejecutó en {duracion:.6f} segundos.")
 
     return
 ```
